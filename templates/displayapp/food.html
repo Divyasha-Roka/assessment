@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="border: 5px solid brown;" >
+    
+    <h1 style="text-align: center; color:blue; text-decoration: underline; font-size: 1.9vw; font-style: italic;" >Food Menu</h1>
+    {% if data %}
+    <div style="display: flex; justify-content: space-around; margin-right: 7%; margin-left: 1vw; width:96%;text-decoration: underline; font-size: 2vw;" >
+        <h3 style ="color: blue; text-align: center;">ID</h3>
+        <h3 style ="color: blue; text-align: center;">DISH</h3>
+        <h3 style ="color:blue; text-align: center;">PRICE</h3>
+        <h3 style ="color: blue; text-align: center;">IMAGE</h3>
+    </div >
+        {% for d in data %}
+        <div style="display: flex; justify-content: space-around; margin-top: 2%; padding-left: 0%; text-align: center; font-size: 1.4vw; margin-bottom: 3%; " >
+            <h3>{{d.id}}</h3><h3>{{d.name}}</h3><h3>{{d.price}}</h3>
+            <img src="{{d.image.url}}" style="width: 10%; height: 10vh; " alt="">
+        </div>
+        {% endfor %}    
+    
+    {% else %}
+        <h3>No Menu Found</h3>
+    {%endif%}
+</body>
+</html>
